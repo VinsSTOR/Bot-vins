@@ -1,0 +1,24 @@
+<html>
+<head><title>VINSBOT</title></head>
+<body>
+  <h2>🤖 VINSBOT Online</h2>
+  <input type="text" id="input" placeholder="Ketik perintah seperti /menu" />
+  <button onclick="send()">Kirim</button>
+  <div id="output" style="margin-top:20px;"></div>
+  <script>
+    function send() {
+      const cmd = document.getElementById("input").value;
+      const out = document.getElementById("output");
+      if (cmd === "/menu") {
+        out.innerHTML = "<b>📋 Menu:</b><br>/tanya<br>/gambar<br>/game";
+      } else if (cmd === "/tanya") {
+        out.innerHTML = "🧠 AI: Silakan ajukan pertanyaan kamu.";
+      } else if (cmd === "/gambar") {
+        out.innerHTML = "🖼️ Mengambil gambar...";
+      } else {
+        out.innerHTML = "❓ Perintah tidak dikenali.";
+      }
+    }
+  </script>
+</body>
+</html>
