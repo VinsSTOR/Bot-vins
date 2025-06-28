@@ -1,22 +1,29 @@
-<html>
-<head><title>VINSBOT</title></head>
-<body>
-  <h2>🤖 VINSBOT Online</h2>
-  <input type="text" id="input" placeholder="Ketik perintah seperti /menu" />
-  <button onclick="send()">Kirim</button>
-  <div id="output" style="margin-top:20px;"></div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>VINSBOT</title>
+</head>
+<body style="background-color:#121212;color:white;font-family:sans-serif;text-align:center;padding:2rem">
+  <h1>🤖 VINSBOT Chat Online</h1>
+  <p>Ketik perintah seperti <code>/menu</code>, <code>/tanya</code>, <code>/gambar</code>, dll</p>
+  <input type="text" id="input" placeholder="/menu" style="padding:0.5rem;width:80%;max-width:300px;" />
+  <button onclick="run()" style="padding:0.5rem 1rem;">Kirim</button>
+  <div id="output" style="margin-top:2rem;font-size:1.1em;"></div>
   <script>
-    function send() {
-      const cmd = document.getElementById("input").value;
-      const out = document.getElementById("output");
-      if (cmd === "/menu") {
-        out.innerHTML = "<b>📋 Menu:</b><br>/tanya<br>/gambar<br>/game";
-      } else if (cmd === "/tanya") {
-        out.innerHTML = "🧠 AI: Silakan ajukan pertanyaan kamu.";
-      } else if (cmd === "/gambar") {
-        out.innerHTML = "🖼️ Mengambil gambar...";
+    function run() {
+      const val = document.getElementById(\"input\").value.trim().toLowerCase();
+      const out = document.getElementById(\"output\");
+      if (val === \"/menu\") {
+        out.innerHTML = \"📋 Menu:<br>‣ /tanya<br>‣ /soal<br>‣ /gambar<br>‣ /admin\";
+      } else if (val === \"/tanya\") {
+        out.innerHTML = \"🧠 AI: Silakan tanya sesuatu... (simulasi)\";
+      } else if (val === \"/soal\") {
+        out.innerHTML = \"📚 Soal: Berapa hasil 9 x 7?\";
+      } else if (val === \"/gambar\") {
+        out.innerHTML = \"🖼️ Mengambil gambar... (simulasi)\";
       } else {
-        out.innerHTML = "❓ Perintah tidak dikenali.";
+        out.innerHTML = \"❌ Perintah tidak dikenali.\";
       }
     }
   </script>
