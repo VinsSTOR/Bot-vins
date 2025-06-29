@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>VINSBOT</title>
+  <meta charset="UTF-8">
+  <title>VINSBOT Chat Online</title>
+  <style>
+    body { background: #0d0d0d; color: #00ffcc; font-family: sans-serif; text-align: center; padding: 2rem; }
+    input, button { padding: 10px; font-size: 1em; margin-top: 10px; width: 80%; max-width: 300px; }
+    button { background: #00ffcc; color: black; border: none; }
+    #output { margin-top: 2rem; font-size: 1.2em; }
+  </style>
 </head>
-<body style="background-color:#121212;color:white;font-family:sans-serif;text-align:center;padding:2rem">
-  <h1>🤖 VINSBOT Chat Online</h1>
-  <p>Ketik perintah seperti <code>/menu</code>, <code>/tanya</code>, <code>/gambar</code>, dll</p>
-  <input type="text" id="input" placeholder="/menu" style="padding:0.5rem;width:80%;max-width:300px;" />
-  <button onclick="run()" style="padding:0.5rem 1rem;">Kirim</button>
-  <div id="output" style="margin-top:2rem;font-size:1.1em;"></div>
+<body>
+  <h1>🤖 VINSBOT Online</h1>
+  <p>Ketik perintah seperti <code>/menu</code>, <code>/soal</code>, <code>/gambar</code></p>
+  <input id="input" placeholder="/menu" />
+  <button onclick="run()">Kirim</button>
+  <div id="output"></div>
   <script>
     function run() {
-      const val = document.getElementById(\"input\").value.trim().toLowerCase();
-      const out = document.getElementById(\"output\");
-      if (val === \"/menu\") {
-        out.innerHTML = \"📋 Menu:<br>‣ /tanya<br>‣ /soal<br>‣ /gambar<br>‣ /admin\";
-      } else if (val === \"/tanya\") {
-        out.innerHTML = \"🧠 AI: Silakan tanya sesuatu... (simulasi)\";
-      } else if (val === \"/soal\") {
-        out.innerHTML = \"📚 Soal: Berapa hasil 9 x 7?\";
-      } else if (val === \"/gambar\") {
-        out.innerHTML = \"🖼️ Mengambil gambar... (simulasi)\";
-      } else {
-        out.innerHTML = \"❌ Perintah tidak dikenali.\";
-      }
+      const v = document.getElementById('input').value.toLowerCase().trim();
+      const o = document.getElementById('output');
+      if (v === '/menu') o.innerHTML = '📋 Menu:<br>• /tanya<br>• /soal<br>• /gambar<br>• /admin';
+      else if (v === '/tanya') o.innerHTML = '🧠 AI: Silakan tanya sesuatu (simulasi)';
+      else if (v === '/soal') o.innerHTML = '📚 Soal: Berapa hasil 6 x 7?';
+      else if (v === '/gambar') o.innerHTML = '🖼️ Mengambil gambar... (simulasi)';
+      else if (v === '/admin') o.innerHTML = '🔐 Panel admin aktif (simulasi)';
+      else o.innerHTML = '❌ Perintah tidak dikenali. Coba /menu';
     }
   </script>
 </body>
