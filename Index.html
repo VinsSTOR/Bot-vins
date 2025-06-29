@@ -2,30 +2,57 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>VINSBOT Chat Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VINSBOT ONLINE</title>
   <style>
-    body { background: #0d0d0d; color: #00ffcc; font-family: sans-serif; text-align: center; padding: 2rem; }
-    input, button { padding: 10px; font-size: 1em; margin-top: 10px; width: 80%; max-width: 300px; }
-    button { background: #00ffcc; color: black; border: none; }
-    #output { margin-top: 2rem; font-size: 1.2em; }
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+    button {
+      background: #00ffcc;
+      color: #000;
+      border: none;
+    }
+    #output {
+      margin-top: 30px;
+      font-size: 1.1em;
+    }
   </style>
 </head>
 <body>
-  <h1>🤖 VINSBOT Online</h1>
-  <p>Ketik perintah seperti <code>/menu</code>, <code>/soal</code>, <code>/gambar</code></p>
-  <input id="input" placeholder="/menu" />
+  <h1>🤖 VINSBOT ONLINE</h1>
+  <p>Masukkan perintah seperti <code>/menu</code>, <code>/soal</code>, <code>/gambar</code>, <code>/admin</code></p>
+  <input id="input" placeholder="/menu">
   <button onclick="run()">Kirim</button>
   <div id="output"></div>
+
   <script>
     function run() {
-      const v = document.getElementById('input').value.toLowerCase().trim();
-      const o = document.getElementById('output');
-      if (v === '/menu') o.innerHTML = '📋 Menu:<br>• /tanya<br>• /soal<br>• /gambar<br>• /admin';
-      else if (v === '/tanya') o.innerHTML = '🧠 AI: Silakan tanya sesuatu (simulasi)';
-      else if (v === '/soal') o.innerHTML = '📚 Soal: Berapa hasil 6 x 7?';
-      else if (v === '/gambar') o.innerHTML = '🖼️ Mengambil gambar... (simulasi)';
-      else if (v === '/admin') o.innerHTML = '🔐 Panel admin aktif (simulasi)';
-      else o.innerHTML = '❌ Perintah tidak dikenali. Coba /menu';
+      let val = document.getElementById('input').value.toLowerCase().trim();
+      let output = document.getElementById('output');
+      if (val === "/menu") {
+        output.innerHTML = "📋 Menu:<br>• /tanya<br>• /soal<br>• /gambar<br>• /admin";
+      } else if (val === "/tanya") {
+        output.innerHTML = "🧠 AI: Silakan tanya sesuatu (simulasi)";
+      } else if (val === "/soal") {
+        output.innerHTML = "📚 Soal: Berapa hasil dari 8 x 7?";
+      } else if (val === "/gambar") {
+        output.innerHTML = "🖼️ Mengambil gambar... (simulasi)";
+      } else if (val === "/admin") {
+        output.innerHTML = "🔐 Panel admin aktif (simulasi)";
+      } else {
+        output.innerHTML = "❌ Perintah tidak dikenali. Coba /menu";
+      }
     }
   </script>
 </body>
